@@ -1,1 +1,23 @@
-# qa-cucumber-example
+# Пример GUI автотестов с использованием Cucumber
+
+## Технологии и инструменты
+
+>*IntelliJ IDEA Community Edition 2025.1.2*
+>
+>*Java: bellsoft-jdk21.0.4+9-windows-amd64*
+>
+>*Автотесты написаны на <code><strong>*Java*</strong></code> с использованием фреймворка <code><strong>*Selenide*</strong></code> для UI-тестов*
+>
+>*Используется паттерн проектирования <code><strong>*Page Object*</strong></code>*
+>
+>*Для автоматизации тестирования в стиле <code><strong>*BDD*</strong></code> используется <code><strong>*Cucumber*</strong></code>, который позволяет писать тесты на естественном языке <code><strong>*Gherkin*</strong></code>*
+>
+>*Для сборки проекта используется <code><strong>*Maven*</strong></code>*
+>
+>*<code><strong>*JUnit 5*</strong></code> используется как фреймворк для модульного тестирования*
+>
+
+## Реализованы проверки
+
+> - [x] *Проверка*
+> - [x] *Проверка*
