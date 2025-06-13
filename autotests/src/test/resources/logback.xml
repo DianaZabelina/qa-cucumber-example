@@ -1,0 +1,25 @@
+<configuration>
+
+  <!-- Глушим все логи от Selenide -->
+  <logger name="com.codeborne.selenide" level="OFF"/>
+  <logger name="com.codeborne.selenide.impl" level="OFF"/>
+  <logger name="com.codeborne.selenide.webdriver" level="OFF"/>
+  <logger name="com.codeborne.selenide.drivercommands" level="OFF"/>
+
+  <!-- Глушим все логи от Selenium -->
+  <logger name="org.openqa.selenium" level="OFF"/>
+  <logger name="org.openqa.selenium.devtools" level="OFF"/>
+  <logger name="org.openqa.selenium.chromium" level="OFF"/>
+
+  <!-- Корневой логгер тоже заглушаем -->
+  <root level="OFF">
+    <appender-ref ref="STDOUT"/>
+  </root>
+
+  <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+    <encoder>
+      <pattern>%msg%n</pattern>
+    </encoder>
+  </appender>
+
+</configuration>
