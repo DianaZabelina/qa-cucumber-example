@@ -16,6 +16,8 @@
 >
 >*<code><strong>*JUnit 5*</strong></code> используется как фреймворк для модульного тестирования*
 >
+>*Отчет <code><strong>*Allure*</strong></code> доступен по ссылке <code><strong>*https://dianazabelina.github.io/qa-cucumber-example*</strong></code>*
+>
 
 ## Реализованы проверки
 
