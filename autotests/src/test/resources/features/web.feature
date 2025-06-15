@@ -2,6 +2,7 @@
 # noinspection NonAsciiCharacters
 @qa-cucumber
 @qa-cucumber-web
+@local-only
 Функционал: Тест web+selenide
 
   Сценарий: Проверка заголовка сайта

@@ -2,6 +2,7 @@
 # noinspection NonAsciiCharacters
 @qa-cucumber
 @qa-cucumber-loc-str
+@local-only
 Функционал: Тест localhost+structure
 
   Структура сценария: Тест localhost+structure
