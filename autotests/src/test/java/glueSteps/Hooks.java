@@ -15,7 +15,9 @@ public class Hooks {
 
         TimeZone.setDefault(TimeZone.getTimeZone("Etc/GMT-3"));
 
-        AllureUtils.сleanDirectory();
+        if (!"true".equalsIgnoreCase(System.getenv("CI"))) {
+            AllureUtils.сleanDirectory();
+        }
     }
 
     @Before("@local-only")
