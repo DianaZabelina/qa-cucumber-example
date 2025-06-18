@@ -1,5 +1,5 @@
 "Epic","Feature","Story","FAILED","BROKEN","PASSED","SKIPPED","UNKNOWN"
-"","Тест localhost+structure","Тест localhost+structure","0","0","0","3","0"
 "","","","0","0","20","0","0"
-"","Тест web+selenide","Проверка заголовка сайта","0","0","0","3","0"
+"","Тест localhost+structure","Тест localhost+structure","0","0","0","3","0"
 "","Тест API","Проверка GET запроса","0","0","1","0","0"
+"","Тест web+selenide","Проверка заголовка сайта","0","0","0","3","0"
