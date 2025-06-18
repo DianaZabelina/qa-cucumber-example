@@ -1,43 +1,32 @@
-package services;  // Пакет для сервисов
+package services;
 
-import com.sun.net.httpserver.HttpServer;
 import handlers.Handler;
+import settings.Settings;
 
 import java.io.IOException;
-import java.net.InetSocketAddress;
-
-import settings.Settings;
 
 public class HttpServiceRunner {
 
     private final String host;
     private final int port;
+    private final ServerWrapper server;
 
-    public HttpServiceRunner() {
-        this.host = Settings.getHost();
-        this.port = Settings.getPort();
+    // Этот метод для прода
+    public HttpServiceRunner() throws IOException {
+        this(Settings.getHost(), Settings.getPort(),
+                new RealHttpServerWrapper(Settings.getHost(), Settings.getPort()));
+    }
+
+    // Этот метод для unit-тестов
+    public HttpServiceRunner(String host, int port, ServerWrapper server) {
+        this.host = host;
+        this.port = port;
+        this.server = server;
     }
 
     public void startServer() {
-        try {
-            // Привязываем сервер к хосту из настроек
-            InetSocketAddress inetSocketAddress = new InetSocketAddress(host, port);
-
-            // Создаем сервер
-            HttpServer server = HttpServer.create(inetSocketAddress, 0);
-
-            // Регистрируем обработчик для корневой страницы
-            server.createContext("/", new Handler(host, port));
-
-            // Запускаем сервер
-            server.start();
-            System.out.println("Server started at " + getHostPortString());
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    private String getHostPortString() {
-        return "http://" + host + ":" + port;
+        server.createContext("/", new Handler(host, port));
+        server.start();
+        System.out.println("Server started at http://" + host + ":" + port);
     }
 }
