@@ -6,7 +6,7 @@ import settings.Settings;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-@DisplayName("Юнит-тесты Settings")
+@DisplayName("Unit-тесты Settings")
 class SettingsTest {
 
     @Test

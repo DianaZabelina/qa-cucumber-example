@@ -8,7 +8,7 @@ import org.junit.jupiter.api.DisplayName;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-@DisplayName("Юнит-тесты HandlerTest")
+@DisplayName("Unit-тесты HandlerTest")
 class HandlerTest {
 
     private Handler handler;
