@@ -8,11 +8,11 @@ import responses.HostPortJson;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-@DisplayName("Unit-tests HostPortJson")
+@DisplayName("Unit-тесты HostPortJson")
 class HostPortJsonTest {
 
     @Test
-    @DisplayName("Verifying Getters")
+    @DisplayName("Верификация Getters")
     void testGetters() {
         HostPortJson hostPort = new HostPortJson("localhost", 8080);
 
@@ -21,7 +21,7 @@ class HostPortJsonTest {
     }
 
     @Test
-    @DisplayName("Verifying serialization order")
+    @DisplayName("Верификация порядка сериализации")
     void testJsonSerializationOrder() throws JsonProcessingException {
         HostPortJson hostPort = new HostPortJson("127.0.0.1", 1234);
         ObjectMapper mapper = new ObjectMapper();

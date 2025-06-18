@@ -6,11 +6,11 @@ import responses.errors.ErrorBody;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-@DisplayName("Unit-tests ErrorBody")
+@DisplayName("Unit-тесты ErrorBody")
 class ErrorBodyTest {
 
     @Test
-    @DisplayName("Verifying Setters and Getters")
+    @DisplayName("Верификация Setters и Getters")
     void testSettersAndGetters() {
         ErrorBody error = new ErrorBody();
 
@@ -24,7 +24,7 @@ class ErrorBodyTest {
     }
 
     @Test
-    @DisplayName("Verifying default values")
+    @DisplayName("Верификация значений по умолчанию")
     void testDefaultValues() {
         ErrorBody error = new ErrorBody();
 

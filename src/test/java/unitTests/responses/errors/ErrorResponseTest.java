@@ -12,11 +12,11 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-@DisplayName("Unit-tests ErrorResponse")
+@DisplayName("Unit-тесты ErrorResponse")
 class ErrorResponseTest {
 
     @Test
-    @DisplayName("Verifying Setters and Getters")
+    @DisplayName("Верификация Setters и Getters")
     void testSetAndGetResponseHeader() {
         ResponseHeader header = new ResponseHeader();
         header.setResponseDate("2025-06-18T12:00:00Z");
@@ -42,14 +42,14 @@ class ErrorResponseTest {
     }
 
     @Test
-    @DisplayName("Verifying default values")
+    @DisplayName("Верификация значений по умолчанию")
     void testDefaultValue() {
         ErrorResponse errorResponse = new ErrorResponse();
         assertNull(errorResponse.getResponseHeader(), "responseHeader должен быть null по умолчанию");
     }
 
     @Test
-    @DisplayName("Verifying serialization to Json")
+    @DisplayName("Верификация сериализации в Json")
     void testSerializationToJson() throws JsonProcessingException {
         ErrorBody error = new ErrorBody();
         error.setLevel("WARNING");
@@ -72,7 +72,7 @@ class ErrorResponseTest {
     }
 
     @Test
-    @DisplayName("Verifying deserialization to Json")
+    @DisplayName("Верификация десериализации в Json")
     void testDeserializationFromJson() throws JsonProcessingException {
         String json = """
                 {

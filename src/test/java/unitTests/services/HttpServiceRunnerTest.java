@@ -8,11 +8,11 @@ import services.ServerWrapper;
 
 import static org.mockito.Mockito.*;
 
-@DisplayName("Unit-tests HttpServiceRunner")
+@DisplayName("Unit-тесты HttpServiceRunner")
 class HttpServiceRunnerTest {
 
     @Test
-    @DisplayName("Verifying HTTP server startup")
+    @DisplayName("Верификация запуска HTTP-сервера")
     void testStartServer_shouldRegisterHandlerAndStart() {
 
         ServerWrapper mockServer = mock(ServerWrapper.class);
