@@ -23,9 +23,8 @@ public class Hooks {
 
         if (!"true".equalsIgnoreCase(System.getenv("CI"))) {
             AllureUtils.сleanDirectory();
+            setChromeOptions();
         }
-
-        setChromeOptions();
     }
 
     private static void setChromeOptions() {
@@ -53,9 +52,11 @@ public class Hooks {
     @AfterAll
     public static void afterAll() {
 
-        if (WebDriverRunner.hasWebDriverStarted()) {
-            WebDriverRunner.getWebDriver().quit();
-            WebDriverRunner.closeWebDriver(); // Для очистки ссылки внутри Selenide
+        if (!"true".equalsIgnoreCase(System.getenv("CI"))) {
+            if (WebDriverRunner.hasWebDriverStarted()) {
+                WebDriverRunner.getWebDriver().quit();
+                WebDriverRunner.closeWebDriver(); // Для очистки ссылки внутри Selenide
+            }
         }
 
         //AllureUtils.startAllureReport();
