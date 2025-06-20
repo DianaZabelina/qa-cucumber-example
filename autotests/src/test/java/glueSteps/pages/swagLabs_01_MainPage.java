@@ -6,7 +6,7 @@ import utils.pageResolver.Page;
 import utils.pageResolver.Path;
 import utils.pageResolver.Title;
 
-@Title("Главная страница")
+@Title("Main Page")
 @Path("/")
 public class swagLabs_01_MainPage extends Page {
 

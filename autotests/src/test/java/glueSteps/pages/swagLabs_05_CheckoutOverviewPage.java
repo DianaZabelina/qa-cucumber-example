@@ -7,9 +7,9 @@ import utils.pageResolver.Page;
 import utils.pageResolver.Path;
 import utils.pageResolver.Title;
 
-@Title("Your Cart")
-@Path("/cart.html")
-public class swagLabs_03_CartPage extends Page {
+@Title("Checkout Overview")
+@Path("/checkout-step-two.html")
+public class swagLabs_05_CheckoutOverviewPage extends Page {
 
     @Optional
     @FindBy(xpath = "//*[@data-test='shopping-cart-badge']")
@@ -20,11 +20,7 @@ public class swagLabs_03_CartPage extends Page {
     @Title("Your Cart")
     private SelenideElement yourCart;
 
-    @FindBy(xpath = "//*[@id='remove-sauce-labs-onesie']")
-    @Title("Remove Sauce Labs Onesie")
-    private SelenideElement removeSauceLabsOnesieButton;
-
-    @FindBy(xpath = "//*[@id='checkout']")
-    @Title("Checkout")
-    private SelenideElement checkoutButton;
+    @FindBy(xpath = "//*[@id='finish']")
+    @Title("Finish")
+    private SelenideElement finishButton;
 }

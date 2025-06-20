@@ -6,12 +6,14 @@ import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.By;
 import com.codeborne.selenide.Condition;
+
 import static com.codeborne.selenide.Selenide.$$;
 
 import java.lang.reflect.Field;
+import java.time.Duration;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Map;
-
 
 public abstract class Page {
     private final Map<String, Field> fields = new HashMap<>();
@@ -24,6 +26,21 @@ public abstract class Page {
                 fields.put(field.getDeclaredAnnotation(Title.class).value(), field);
             }
         }
+    }
+
+    public boolean isLoaded() {
+        Iterator var1 = this.fields.entrySet().iterator();
+
+        while (var1.hasNext()) {
+            Map.Entry<String, Field> entry = (Map.Entry) var1.next();
+            if (((Field) entry.getValue()).isAnnotationPresent(Disappearing.class)) {
+                this.getElement((String) entry.getKey()).shouldNotBe(Condition.visible, Duration.ofSeconds(15L));
+            } else if (!((Field) entry.getValue()).isAnnotationPresent(Optional.class)) {
+                this.getElement((String) entry.getKey()).shouldBe(Condition.visible, Duration.ofSeconds(15L));
+            }
+        }
+
+        return true;
     }
 
     public void checkRequiredElements() {
@@ -83,22 +100,5 @@ public abstract class Page {
 
         // fallback: по тексту
         return By.xpath("//*[text()='" + elementName + "']");
-    }
-
-    public void setFieldValue(String elementName, String value) {
-        clearField(elementName);
-        SelenideElement field = getElement(elementName);
-        field.setValue(value);
-    }
-
-    public void clearField(String elementName) {
-        SelenideElement field = getElement(elementName);
-        field.click();
-        field.clear();
-    }
-
-    public void clickOnElement(String elementName) {
-        SelenideElement element = getElement(elementName);
-        element.click();
     }
 }

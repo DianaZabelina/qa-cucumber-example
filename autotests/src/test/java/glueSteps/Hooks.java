@@ -28,16 +28,26 @@ public class Hooks {
     }
 
     private static void setChromeOptions() {
+
         ChromeOptions options = new ChromeOptions();
-        // Отключение менеджера паролей и предупреждений
+
         Map<String, Object> prefs = new HashMap<>();
         prefs.put("credentials_enable_service", false);
         prefs.put("profile.password_manager_enabled", false);
         options.setExperimentalOption("prefs", prefs);
+
         options.addArguments("--disable-features=PasswordLeakDetection,AutofillKeyedPasswords");
-        // Важно: создать новый ChromeDriver с этими опциями
+
+        String tempProfileDir = System.getProperty("java.io.tmpdir") + "/chrome-temp-profile-" + System.nanoTime();
+        options.addArguments("--user-data-dir=" + tempProfileDir);
+        options.addArguments("--disable-save-password-bubble");
+
+        options.addArguments("--no-default-browser-check");
+        options.addArguments("--disable-default-apps");
+        options.addArguments("--disable-popup-blocking");
+        options.addArguments("--disable-extensions");
+
         WebDriver driver = new ChromeDriver(options);
-        // Установить этот драйвер для Selenide
         WebDriverRunner.setWebDriver(driver);
     }
 
